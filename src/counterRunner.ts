@@ -1,6 +1,7 @@
 import { Inject } from "typescript-ioc";
 import { ICounterService } from "./counterService";
 import { INumberAnalyser } from "./numberAnalyser";
+import { INumberFormatter } from "./numberFormatter";
 import { NumberMatcherType } from "./numberMatcher";
 import { INumberMatcherFactory } from "./numberMatcherFactory";
 
@@ -11,8 +12,8 @@ export class CounterRunner {
     @Inject 
     private analyser!: INumberAnalyser;
 
-    constructor() {
-    }
+    @Inject 
+    private formatter!: INumberFormatter;
 
     private initialised(): boolean {
         if (this.counterService && this.analyser)
@@ -24,13 +25,14 @@ export class CounterRunner {
     public run(): void {
         if(this.initialised())
         {
-            console.log(this.counterService.currentNum)
-            console.log(this.analyser.analyse(this.counterService.currentNum));
+            console.log(this.formatNumber())
 
-            while(this.counterService.next()) {
-                console.log(this.counterService.currentNum);
-                console.log(this.analyser.analyse(this.counterService.currentNum));
-            }
+            while(this.counterService.next()) 
+                console.log(this.formatNumber());
         }
+    }
+
+    private formatNumber(): string {
+        return this.formatter.format(this.counterService.currentNum, this.analyser.analyse(this.counterService.currentNum));
     }
 }

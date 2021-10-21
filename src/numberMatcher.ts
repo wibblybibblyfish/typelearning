@@ -1,8 +1,8 @@
 import { OnlyInstantiableByContainer, Singleton } from "typescript-ioc";
 
 export enum NumberMatcherType {
-    MutlipleOfThree,
-    MultipleOfFive
+    MutlipleOfThree = 1,
+    MultipleOfFive = 2
 }
 
 export abstract class INumberMatcher {
