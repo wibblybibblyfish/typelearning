@@ -1,0 +1,32 @@
+{
+  "name": "tournament-code-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/*.spec.ts",
+    "coverage": "nyc npm run test",
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "watch": "concurrently npm:start:*",
+    "start": "tsc && node build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.0.1",
+    "nodemon": "^2.0.7",
+    "typescript-ioc": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.16",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2",
+    "nyc": "^15.1.0",
+    "ts-mockito": "^2.6.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

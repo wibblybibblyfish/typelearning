@@ -1,3 +1,3 @@
 # typelearning
 
-looking at using GIT and setting up a typescript / node environment
+looking at using GIT and setting up a typescript / node environmentinit
