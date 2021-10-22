@@ -16,12 +16,17 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^6.0.1",
+    "fs": "^0.0.1-security",
+    "fs-filesystem": "^2.1.2",
+    "js-yaml": "^3.14.1",
     "nodemon": "^2.0.7",
     "typescript-ioc": "^3.2.2"
   },
   "devDependencies": {
     "@types/chai": "^4.2.16",
+    "@types/js-yaml": "^4.0.3",
     "@types/mocha": "^8.2.2",
+    "@types/node": "^16.11.2",
     "chai": "^4.3.4",
     "mocha": "^8.3.2",
     "nyc": "^15.1.0",
