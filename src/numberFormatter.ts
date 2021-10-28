@@ -16,9 +16,12 @@ export class NumberFormatter implements INumberFormatter {
     public format(input: number, matches: NumberMatcherType[]): string {
         
         let formattedNumber: string = '';
-
-        matches.sort((a,b) => a -b).forEach((matchType) => {
-            formattedNumber += this.getNumberFormat(matchType)?.replacementText;
+        let uniqueMatches = Array.from(new Set(matches));
+        
+        uniqueMatches.sort((a,b) => a -b).forEach((matchType) => { 
+            let numberFormat = this.getNumberFormat(matchType);
+            if (numberFormat)            
+                formattedNumber += numberFormat.replacementText;
         });
 
         if (formattedNumber == '')

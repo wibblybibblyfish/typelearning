@@ -13,7 +13,7 @@ export class NumberMatcherFactory implements INumberMatcherFactory {
         if (matcherType == NumberMatcherType.MultipleOfFive)
             return new multipleOfFiveMatcher();
 
-        throw new Error("MatcherType " + matcherType + " is unknown.");
+        throw new Error("MatcherType " + matcherType.toString() + " is unknown.");
     }
 
 }

@@ -16,23 +16,27 @@ export class CounterRunner {
     private formatter!: INumberFormatter;
 
     private initialised(): boolean {
-        if (this.counterService && this.analyser)
+        if (this.counterService && this.analyser && this.formatter)
             return true;
 
         return false;
     }
 
     public run(): void {
-        if(this.initialised())
-        {
-            console.log(this.formatNumber())
+        if(!this.initialised())
+            return;
 
-            while(this.counterService.next()) 
-                console.log(this.formatNumber());
+        let sequenceNumber = this.counterService.start();
+        console.log(this.formatNumber(sequenceNumber))
+
+        while(this.counterService.hasNext(sequenceNumber))  
+        {
+            sequenceNumber = this.counterService.getNext(sequenceNumber);
+            console.log(this.formatNumber(sequenceNumber));
         }
     }
 
-    private formatNumber(): string {
-        return this.formatter.format(this.counterService.currentNum, this.analyser.analyse(this.counterService.currentNum));
+    private formatNumber(currentNumber: number): string {
+        return this.formatter.format(currentNumber, this.analyser.analyse(currentNumber));
     }
 }

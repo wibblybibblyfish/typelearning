@@ -2,22 +2,33 @@ import { InjectValue } from "typescript-ioc";
 import { CounterConfig} from "./counterConfig";
 
 export abstract class ICounterService {
-    public currentNum: number = 0;
-    abstract next(): boolean;
+    abstract start(): number;
+    abstract getNext(current: number): number;
+    abstract hasNext(current: number): boolean;
 } 
-
 export class CounterService implements ICounterService {
      
-    public currentNum: number;
-
     constructor(@InjectValue('counterConfig') private config: CounterConfig) {
-        this.currentNum = this.config.startNum;     
     }
 
-    public next() : boolean {
-        this.currentNum = this.currentNum + this.config.increment;
+    public start(): number {
+        return this.config.startNum;
+    }
 
-        if(this.currentNum <= this.config.endNum)
+    public getNext(current: number): number {
+        let next = current + this.config.increment;
+
+        if (next > this.config.endNum)
+            next = this.config.endNum;
+
+        return next;
+    }
+    
+    public hasNext(current: number) : boolean {
+        
+        let next = current + this.config.increment;
+
+        if(next <= this.config.endNum)
             return true;
  
         return false;
