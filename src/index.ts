@@ -6,6 +6,6 @@ import { IoCInit } from "./ioc.config";
 let initConfig = new IoCInit();
 initConfig.init();
 
-let runner = new CounterRunner();
+let runner = Container.get(CounterRunner)
 
 runner.run();

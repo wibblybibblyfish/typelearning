@@ -1,3 +1,4 @@
+import { load } from "js-yaml";
 import { Inject } from "typescript-ioc";
 import { ICounterService } from "./counterService";
 import { INumberAnalyser } from "./numberAnalyser";
@@ -6,14 +7,16 @@ import { NumberMatcherType } from "./numberMatcher";
 import { INumberMatcherFactory } from "./numberMatcherFactory";
 
 export class CounterRunner {
-    @Inject
-    private counterService!: ICounterService;
 
-    @Inject 
-    private analyser!: INumberAnalyser;
+    private counterService: ICounterService;
+    private analyser: INumberAnalyser;
+    private formatter: INumberFormatter;
 
-    @Inject 
-    private formatter!: INumberFormatter;
+    public constructor(@Inject counterService: ICounterService, @Inject analyser: INumberAnalyser, @Inject formatter: INumberFormatter){
+        this.counterService = counterService;
+        this.analyser = analyser;
+        this.formatter = formatter;
+    }
 
     private initialised(): boolean {
         if (this.counterService && this.analyser && this.formatter)

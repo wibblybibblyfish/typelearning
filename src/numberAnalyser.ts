@@ -9,14 +9,14 @@ export abstract class INumberAnalyser {
 }
 
 export class NumberAnalyser implements INumberAnalyser {
-    
-    @Inject
-    private matcherFactory!: INumberMatcherFactory;
+
+    private matcherFactory: INumberMatcherFactory;
     
     private matchers: NumberMatcherType[];
 
-    public constructor(@InjectValue('matcherConfig') useMatchers: NumberMatcherType[]){
+    public constructor(@InjectValue('matcherConfig') useMatchers: NumberMatcherType[], @Inject matcherFactory: INumberMatcherFactory){
         this.matchers = useMatchers;
+        this.matcherFactory = matcherFactory;
     }
 
     public analyse(input: number): NumberMatcherType[] {
