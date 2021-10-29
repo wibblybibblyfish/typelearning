@@ -1,7 +1,8 @@
 import { describe } from 'mocha';
 import { expect } from 'chai';
 import { NumberMatcherFactory } from '../src/numberMatcherFactory';
-import { NumberMatcherType } from '../src/numberMatcher';
+import { multipleOfFiveMatcher, multipleOfThreeMatcher, NumberMatcherType } from '../src/numberMatcher';
+import { Container } from 'typescript-ioc';
 
 describe('NumberMatcherFactory', () => {
     
