@@ -1,3 +1,4 @@
+import { match } from "assert";
 import { Inject, InjectValue } from "typescript-ioc";
 import { NumberMatcherType } from "./numberMatcher";
 import { INumberMatcherFactory } from "./numberMatcherFactory";
