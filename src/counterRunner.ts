@@ -3,40 +3,35 @@ import { Inject } from "typescript-ioc";
 import { ICounterService } from "./counterService";
 import { INumberAnalyser } from "./numberAnalyser";
 import { INumberFormatter } from "./numberFormatter";
-import { NumberMatcherType } from "./numberMatcher";
-import { INumberMatcherFactory } from "./numberMatcherFactory";
-
+import { ILogger } from "./logger";
 export class CounterRunner {
 
     private counterService: ICounterService;
     private analyser: INumberAnalyser;
     private formatter: INumberFormatter;
+    private logger: ILogger;
 
-    public constructor(@Inject counterService: ICounterService, @Inject analyser: INumberAnalyser, @Inject formatter: INumberFormatter){
+    public constructor(@Inject counterService: ICounterService, @Inject analyser: INumberAnalyser, @Inject formatter: INumberFormatter, @Inject logger: ILogger){
         this.counterService = counterService;
         this.analyser = analyser;
         this.formatter = formatter;
-    }
-
-    private initialised(): boolean {
-        if (this.counterService && this.analyser && this.formatter)
-            return true;
-
-        return false;
+        this.logger = logger;
     }
 
     public run(): void {
-        if(!this.initialised())
-            return;
-
-        let sequenceNumber = this.counterService.start();
-        console.log(this.formatNumber(sequenceNumber))
+        let sequenceNumber = this.init();
 
         while(this.counterService.hasNext(sequenceNumber))  
         {
             sequenceNumber = this.counterService.getNext(sequenceNumber);
-            console.log(this.formatNumber(sequenceNumber));
+            this.logger.log(this.formatNumber(sequenceNumber));
         }
+    }
+    
+    private init(): number {
+        let startNumber = this.counterService.start();
+        this.logger.log(this.formatNumber(startNumber)) 
+        return startNumber;
     }
 
     private formatNumber(currentNumber: number): string {

@@ -7,7 +7,7 @@ import { instance, mock, when } from "ts-mockito";
 describe('NumberAnalyser', () => {
     
     describe('analyse(matches)', () => {
-        it('returns no types if no matches', () => {
+        it('returns no result if no matches', () => {
             // Given
             const input: number = 1;
             const mockedNumberMatcher: INumberMatcher = mock<INumberMatcher>();
