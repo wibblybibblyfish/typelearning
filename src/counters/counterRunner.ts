@@ -1,9 +1,8 @@
-import { load } from "js-yaml";
 import { Inject } from "typescript-ioc";
-import { ICounterService } from "./counterService";
-import { INumberAnalyser } from "./numberAnalyser";
-import { INumberFormatter } from "./numberFormatter";
-import { ILogger } from "./logger";
+import { ICounterService } from "./ICounterService";
+import { INumberAnalyser } from "../analysis/INumberAnalyser";
+import { INumberFormatter } from "../formatting/INumberFormatter";
+import { ILogger } from "../util/ILogger";
 export class CounterRunner {
 
     private counterService: ICounterService;

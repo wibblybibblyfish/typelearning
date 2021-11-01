@@ -1,11 +1,7 @@
 import { InjectValue } from "typescript-ioc";
 import { CounterConfig} from "./counterConfig";
+import { ICounterService } from "./ICounterService";
 
-export abstract class ICounterService {
-    abstract start(): number;
-    abstract getNext(current: number): number;
-    abstract hasNext(current: number): boolean;
-} 
 export class CounterService implements ICounterService {
      
     constructor(@InjectValue('counterConfig') private config: CounterConfig) {

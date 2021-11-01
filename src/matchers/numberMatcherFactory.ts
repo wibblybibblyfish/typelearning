@@ -1,8 +1,8 @@
-import { INumberMatcher, multipleOfFiveMatcher, multipleOfThreeMatcher, NumberMatcherType } from "./numberMatcher";
-
-export abstract class INumberMatcherFactory {
-    abstract build(matcherType: NumberMatcherType): INumberMatcher;
-}
+import { NumberMatcherType } from "./numberMatcherType";
+import { multipleOfFiveMatcher } from "./multipleOfFiveMatcher";
+import { multipleOfThreeMatcher } from "./multipleOfThreeMatcher";
+import { INumberMatcher } from "./INumberMatcher";
+import { INumberMatcherFactory } from "./INumberMatcherFactory";
 
 export class NumberMatcherFactory implements INumberMatcherFactory {
     

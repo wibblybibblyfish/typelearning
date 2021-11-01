@@ -1,12 +1,7 @@
-import { NumberMatcherType } from "./numberMatcher"
+import { NumberMatcherType } from "../matchers/numberMatcherType"
 import { NumberFormatConfig } from "./numberFormatConfig";
 import { InjectValue } from "typescript-ioc";
-
-export abstract class INumberFormatter {
-
-    abstract format(input: number, matches: NumberMatcherType[]): string;
-
-}
+import { INumberFormatter } from "./INumberFormatter";
 
 export class NumberFormatter implements INumberFormatter {
     

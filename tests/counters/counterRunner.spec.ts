@@ -1,11 +1,10 @@
-import { ICounterService } from "../src/counterService";
-import { anyNumber, anyOfClass, anyString, anything, instance, mock, verify, when } from "ts-mockito";
-import { INumberAnalyser } from "../src/numberAnalyser";
-import { INumberFormatter } from "../src/numberFormatter";
-import { ILogger } from "../src/logger";
-import { CounterRunner } from "../src/counterRunner";
-import { count } from "console";
-import { NumberMatcherType } from "../src/numberMatcher";
+import { ICounterService } from "../../src/counters/ICounterService";
+import { anyNumber, anything, instance, mock, verify, when } from "ts-mockito";
+import { INumberAnalyser } from "../../src/analysis/INumberAnalyser";
+import { INumberFormatter } from "../../src/formatting/INumberFormatter";
+import { ILogger } from "../../src/util/ILogger";
+import { CounterRunner } from "../../src/counters/counterRunner";
+import { NumberMatcherType } from "../../src/matchers/numberMatcherType";
 
 describe('CounterRunner', () => {
     

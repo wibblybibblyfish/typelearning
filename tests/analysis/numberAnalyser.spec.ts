@@ -1,9 +1,10 @@
 import { expect } from "chai";
-import { NumberAnalyser } from "../src/numberAnalyser";
-import { INumberMatcher, NumberMatcherType } from "../src/numberMatcher";
-import { INumberMatcherFactory, NumberMatcherFactory } from "../src/numberMatcherFactory";
+import { NumberAnalyser } from "../../src/analysis/numberAnalyser";
+import { INumberMatcher } from "../../src/matchers/INumberMatcher";
+import { NumberMatcherType } from "../../src/matchers/numberMatcherType" 
+import { INumberMatcherFactory } from "../../src/matchers/INumberMatcherFactory";
+import { NumberMatcherFactory } from "../../src/matchers/numberMatcherFactory";
 import { instance, mock, when } from "ts-mockito";
-import { Console } from "console";
 
 describe('NumberAnalyser', () => {
     

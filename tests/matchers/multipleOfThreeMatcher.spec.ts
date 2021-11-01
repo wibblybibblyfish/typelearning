@@ -1,5 +1,6 @@
 import { expect } from "chai";
-import { multipleOfThreeMatcher, NumberMatcherType } from "../src/numberMatcher";
+import { NumberMatcherType } from "../../src/matchers/numberMatcherType";
+import { multipleOfThreeMatcher } from "../../src/matchers/multipleOfThreeMatcher";
 
 describe('MultipleOfThreeMatcher', () => {
     

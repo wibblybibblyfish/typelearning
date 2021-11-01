@@ -1,4 +1,4 @@
-import { NumberMatcherType } from "./numberMatcher";
+import { NumberMatcherType } from "../matchers/numberMatcherType";
 
 export interface NumberFormatConfig {
     matcherType: NumberMatcherType;

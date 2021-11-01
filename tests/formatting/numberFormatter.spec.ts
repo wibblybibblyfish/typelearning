@@ -1,6 +1,6 @@
-import { NumberFormatter } from "../src/numberFormatter";
-import { NumberFormatConfig } from "../src/numberFormatConfig";
-import { NumberMatcherType } from "../src/numberMatcher";
+import { NumberFormatter } from "../../src/formatting/numberFormatter";
+import { NumberFormatConfig } from "../../src/formatting/numberFormatConfig";
+import { NumberMatcherType } from "../../src/matchers/numberMatcherType";
 import { expect } from "chai";
 
 describe('NumberFormatter', () => {

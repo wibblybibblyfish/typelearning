@@ -1,5 +1,5 @@
-import { CounterService } from "../src/counterService";
-import { CounterConfig } from "../src/counterConfig";
+import { CounterService } from "../../src/counters/counterService";
+import { CounterConfig } from "../../src/counters/counterConfig";
 import { expect } from "chai";
 
 describe('CounterService', () => {

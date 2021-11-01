@@ -1,6 +1,4 @@
-export abstract class ILogger {
-    abstract log(message: string): void;
-}
+import { ILogger } from "./ILogger";
 
 export class Logger implements ILogger {
 

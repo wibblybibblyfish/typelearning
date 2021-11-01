@@ -1,4 +1,4 @@
-import { Logger } from "../src/logger";
+import { Logger } from "../../src/util/logger";
 import { capture, spy } from "ts-mockito";
 import { expect } from "chai";
 

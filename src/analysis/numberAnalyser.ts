@@ -1,13 +1,7 @@
-import { match } from "assert";
 import { Inject, InjectValue } from "typescript-ioc";
-import { NumberMatcherType } from "./numberMatcher";
-import { INumberMatcherFactory } from "./numberMatcherFactory";
-
-export abstract class INumberAnalyser {
-    
-    abstract analyse(input: Number): NumberMatcherType[];
-
-}
+import { NumberMatcherType } from "../matchers/numberMatcherType";
+import { INumberMatcherFactory } from "../matchers/INumberMatcherFactory";
+import { INumberAnalyser } from "./INumberAnalyser";
 
 export class NumberAnalyser implements INumberAnalyser {
 
