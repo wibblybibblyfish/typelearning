@@ -40,7 +40,7 @@ export class DependencyConfig {
             }]
         );
 
-        Container.bindName('matcherConfig').to(new Array(NumberMatcherType.MultipleOfFive, NumberMatcherType.MutlipleOfThree))
+        Container.bindName('matcherConfig').to([ NumberMatcherType.MultipleOfFive, NumberMatcherType.MutlipleOfThree ])
     }
 
 }
