@@ -18,19 +18,14 @@ export class CounterRunner {
     }
 
     public run(): void {
-        let sequenceNumber = this.init();
+        const counterService = this.counterService.getCounter();
+        let sequenceNumber = counterService.next();
 
-        while(this.counterService.hasNext(sequenceNumber))  
+        while(!sequenceNumber.done)  
         {
-            sequenceNumber = this.counterService.getNext(sequenceNumber);
-            this.logger.log(this.formatNumber(sequenceNumber));
+            this.logger.log(this.formatNumber(sequenceNumber.value));
+            sequenceNumber = counterService.next();
         }
-    }
-    
-    private init(): number {
-        let startNumber = this.counterService.start();
-        this.logger.log(this.formatNumber(startNumber)) 
-        return startNumber;
     }
 
     private formatNumber(currentNumber: number): string {
